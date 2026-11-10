@@ -1,45 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+ob_start();
+include('include/header.php');
+$pg = ob_get_contents();
+$pageTitle = '';
+$description = '';
+$author = '';
+$keywords = "";
+$canonical = "";
+//delete old desc and author
+$pg = str_replace('content=""', '', $pg);
+//add anew desc and author
+$pg = str_replace('name="description"', 'name="description" content="' . $description . '" ', $pg);
+$pg = str_replace('name="author"', 'name="author" content="' . $author . '" ', $pg);
+$pg = str_replace('name="keywords"', 'name="keywords" content="' . $keywords . '" ', $pg);
+$pg = str_replace('rel="canonical"', 'rel="canonical" href="' . $canonical . '" ', $pg);
+ob_end_clean();
+ob_end_clean();
+echo str_replace('%TITLE%', $pageTitle, $pg);
+?>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Wajahat Ali — Attorney at Law</title>
-    <meta name="description"
-        content="Trusted legal counsel for growing businesses. Business, family, criminal, civil and real estate law.">
-    <meta property="og:title" content="Wajahat Ali — Attorney at Law">
-    <meta property="og:description" content="Trusted legal counsel for growing businesses.">
-    <meta property="og:type" content="website">
-    <meta name="twitter:card" content="summary_large_image">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@400;500;600;700&display=swap">
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
-</head>
 
-<body class="font-sans antialiased">
-    <main class="bg-background text-foreground overflow-x-hidden" data-tsd-source="/src/routes/index.tsx:67:5">
-        <header class="fixed inset-x-0 top-0 z-50 flex items-center justify-between px-6 py-5 md:px-24"
-            data-tsd-source="/src/routes/index.tsx:69:7"><a aria-label="Home"
-                data-tsd-source="/src/routes/index.tsx:70:9" href="#top"><svg aria-hidden="true"
-                    class="lucide lucide-gavel h-9 w-9 text-primary" data-tsd-source="/src/routes/index.tsx:70:42"
-                    fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                    stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="m14 13-8.381 8.38a1 1 0 0 1-3.001-3l8.384-8.381"></path>
-                    <path d="m16 16 6-6"></path>
-                    <path d="m21.5 10.5-8-8"></path>
-                    <path d="m8 8 6-6"></path>
-                    <path d="m8.5 7.5 8 8"></path>
-                </svg></a><button class="flex items-center gap-3 font-display text-2xl uppercase"
-                data-tsd-source="/src/routes/index.tsx:71:9">Menu <svg aria-hidden="true"
-                    class="lucide lucide-menu h-6 w-6" data-tsd-source="/src/routes/index.tsx:72:16" fill="none"
-                    height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M4 5h16"></path>
-                    <path d="M4 12h16"></path>
-                    <path d="M4 19h16"></path>
-                </svg></button></header>
         <section class="relative flex min-h-screen flex-col justify-between overflow-hidden"
             data-tsd-source="/src/routes/index.tsx:87:7" id="top"><img alt="Wajahat Ali, attorney"
                 class="absolute inset-0 h-full w-full object-cover object-right opacity-70"
@@ -200,16 +180,12 @@
                     <p class="mt-6 text-lg text-muted-foreground" data-tsd-source="/src/routes/index.tsx:140:13">The law
                         isn't just a profession to me — it's a commitment to people, their rights, and their future.
                         Every case is personal, and every client deserves honest guidance, strategic advice, and
-                        unwavering support.</p><a
-                        class="mt-8 inline-flex items-center gap-2 border-b border-primary pb-1 font-semibold uppercase tracking-widest text-primary"
-                        data-tsd-source="/src/routes/index.tsx:141:13" href="#cases">See my story <svg
-                            aria-hidden="true" class="lucide lucide-arrow-up-right h-4 w-4"
-                            data-tsd-source="/src/routes/index.tsx:141:173" fill="none" height="24"
-                            stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M7 7h10v10"></path>
-                            <path d="M7 17 17 7"></path>
-                        </svg></a>
+                        unwavering support.</p>
+
+
+
+
+
                 </div>
             </div>
         </section>
@@ -451,7 +427,7 @@
                     data-tsd-source="/src/routes/index.tsx:200:11" loading="lazy" src="assets/Gemini_Generated_Image_5yd4kw5yd4kw5yd4.jpg" />
                 <div data-tsd-source="/src/routes/index.tsx:201:11">
                     <p class="text-xs font-semibold uppercase tracking-[0.3em] text-primary"
-                        data-tsd-source="/src/routes/index.tsx:53:10">✧ The Carter Way</p>
+                        data-tsd-source="/src/routes/index.tsx:53:10">✧ </p>
                     <h2 class="font-display uppercase leading-[0.95] text-5xl md:text-7xl mt-4"
                         data-tsd-source="/src/routes/index.tsx:56:10">You deserve counsel that fights for you</h2>
                     <p class="mt-6 text-lg text-muted-foreground" data-tsd-source="/src/routes/index.tsx:204:13">Every
@@ -529,131 +505,8 @@
                 </div>
             </div>
         </section>
-        <section class="bg-cream px-6 py-28 text-cream-foreground md:px-24"
-            data-tsd-source="/src/routes/index.tsx:239:7" id="pricing">
-            <p class="text-sm font-semibold" data-tsd-source="/src/routes/index.tsx:240:9">Pricing</p>
-            <h2 class="font-display uppercase leading-[0.95] text-5xl md:text-7xl mt-4"
-                data-tsd-source="/src/routes/index.tsx:56:10">Legal support that fits your needs</h2>
-            <p class="mt-4 max-w-xl text-lg opacity-70" data-tsd-source="/src/routes/index.tsx:242:9">Choose a service
-                plan designed to give you the right level of support, clarity, and peace of mind.</p>
-            <div class="mt-14 grid gap-6 md:grid-cols-2" data-tsd-source="/src/routes/index.tsx:243:9">
-                <div class="rounded-xl p-8 md:p-10 border border-cream-foreground/20"
-                    data-tsd-source="/src/routes/index.tsx:248:13">
-                    <p class="text-sm font-semibold uppercase tracking-widest text-primary"
-                        data-tsd-source="/src/routes/index.tsx:249:15">Consultation</p>
-                    <h3 class="mt-3 font-display text-4xl uppercase" data-tsd-source="/src/routes/index.tsx:250:15">One
-                        Time Consultation</h3>
-                    <p class="mt-2 font-display text-5xl" data-tsd-source="/src/routes/index.tsx:251:15">Free</p>
-                    <p class="mt-3 opacity-70" data-tsd-source="/src/routes/index.tsx:252:15">Get clear guidance for
-                        your legal questions.</p><a
-                        class="mt-6 inline-flex rounded-full px-6 py-3 font-semibold bg-cream-foreground text-cream"
-                        data-tsd-source="/src/routes/index.tsx:253:15" href="#contact">Book a Consultation</a>
-                    <h4 class="mt-8 font-semibold" data-tsd-source="/src/routes/index.tsx:254:15">What's Included:</h4>
-                    <ul class="mt-4 space-y-3" data-tsd-source="/src/routes/index.tsx:255:15">
-                        <li class="flex gap-3" data-tsd-source="/src/routes/index.tsx:255:63"><svg aria-hidden="true"
-                                class="lucide lucide-check h-5 w-5 shrink-0 text-primary"
-                                data-tsd-source="/src/routes/index.tsx:255:98" fill="none" height="24"
-                                stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M20 6 9 17l-5-5"></path>
-                            </svg>60-minute private consultation</li>
-                        <li class="flex gap-3" data-tsd-source="/src/routes/index.tsx:255:63"><svg aria-hidden="true"
-                                class="lucide lucide-check h-5 w-5 shrink-0 text-primary"
-                                data-tsd-source="/src/routes/index.tsx:255:98" fill="none" height="24"
-                                stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M20 6 9 17l-5-5"></path>
-                            </svg>Expert legal advice on your specific issue</li>
-                        <li class="flex gap-3" data-tsd-source="/src/routes/index.tsx:255:63"><svg aria-hidden="true"
-                                class="lucide lucide-check h-5 w-5 shrink-0 text-primary"
-                                data-tsd-source="/src/routes/index.tsx:255:98" fill="none" height="24"
-                                stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M20 6 9 17l-5-5"></path>
-                            </svg>Case evaluation and next steps</li>
-                        <li class="flex gap-3" data-tsd-source="/src/routes/index.tsx:255:63"><svg aria-hidden="true"
-                                class="lucide lucide-check h-5 w-5 shrink-0 text-primary"
-                                data-tsd-source="/src/routes/index.tsx:255:98" fill="none" height="24"
-                                stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M20 6 9 17l-5-5"></path>
-                            </svg>Available in-person or online</li>
-                        <li class="flex gap-3" data-tsd-source="/src/routes/index.tsx:255:63"><svg aria-hidden="true"
-                                class="lucide lucide-check h-5 w-5 shrink-0 text-primary"
-                                data-tsd-source="/src/routes/index.tsx:255:98" fill="none" height="24"
-                                stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M20 6 9 17l-5-5"></path>
-                            </svg>No obligation to hire afterward</li>
-                    </ul>
-                </div>
-                <div class="rounded-xl p-8 md:p-10 bg-background text-foreground"
-                    data-tsd-source="/src/routes/index.tsx:248:13">
-                    <p class="text-sm font-semibold uppercase tracking-widest text-primary"
-                        data-tsd-source="/src/routes/index.tsx:249:15">Ongoing Legal Support</p>
-                    <h3 class="mt-3 font-display text-4xl uppercase" data-tsd-source="/src/routes/index.tsx:250:15">
-                        Monthly Retainer</h3>
-                    <p class="mt-2 font-display text-5xl" data-tsd-source="/src/routes/index.tsx:251:15">$499/month</p>
-                    <p class="mt-3 opacity-70" data-tsd-source="/src/routes/index.tsx:252:15">Ongoing legal support to
-                        keep you and your business protected.</p><a
-                        class="mt-6 inline-flex rounded-full px-6 py-3 font-semibold bg-primary text-primary-foreground"
-                        data-tsd-source="/src/routes/index.tsx:253:15" href="#contact">Get Started Today</a>
-                    <h4 class="mt-8 font-semibold" data-tsd-source="/src/routes/index.tsx:254:15">What's Included:</h4>
-                    <ul class="mt-4 space-y-3" data-tsd-source="/src/routes/index.tsx:255:15">
-                        <li class="flex gap-3" data-tsd-source="/src/routes/index.tsx:255:63"><svg aria-hidden="true"
-                                class="lucide lucide-check h-5 w-5 shrink-0 text-primary"
-                                data-tsd-source="/src/routes/index.tsx:255:98" fill="none" height="24"
-                                stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M20 6 9 17l-5-5"></path>
-                            </svg>Unlimited email &amp; phone support</li>
-                        <li class="flex gap-3" data-tsd-source="/src/routes/index.tsx:255:63"><svg aria-hidden="true"
-                                class="lucide lucide-check h-5 w-5 shrink-0 text-primary"
-                                data-tsd-source="/src/routes/index.tsx:255:98" fill="none" height="24"
-                                stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M20 6 9 17l-5-5"></path>
-                            </svg>Contract review and document guidance</li>
-                        <li class="flex gap-3" data-tsd-source="/src/routes/index.tsx:255:63"><svg aria-hidden="true"
-                                class="lucide lucide-check h-5 w-5 shrink-0 text-primary"
-                                data-tsd-source="/src/routes/index.tsx:255:98" fill="none" height="24"
-                                stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M20 6 9 17l-5-5"></path>
-                            </svg>Ongoing legal consultations</li>
-                        <li class="flex gap-3" data-tsd-source="/src/routes/index.tsx:255:63"><svg aria-hidden="true"
-                                class="lucide lucide-check h-5 w-5 shrink-0 text-primary"
-                                data-tsd-source="/src/routes/index.tsx:255:98" fill="none" height="24"
-                                stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M20 6 9 17l-5-5"></path>
-                            </svg>Priority response (within 24 hours)</li>
-                        <li class="flex gap-3" data-tsd-source="/src/routes/index.tsx:255:63"><svg aria-hidden="true"
-                                class="lucide lucide-check h-5 w-5 shrink-0 text-primary"
-                                data-tsd-source="/src/routes/index.tsx:255:98" fill="none" height="24"
-                                stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M20 6 9 17l-5-5"></path>
-                            </svg>Monthly legal updates and compliance reminders</li>
-                        <li class="flex gap-3" data-tsd-source="/src/routes/index.tsx:255:63"><svg aria-hidden="true"
-                                class="lucide lucide-check h-5 w-5 shrink-0 text-primary"
-                                data-tsd-source="/src/routes/index.tsx:255:98" fill="none" height="24"
-                                stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M20 6 9 17l-5-5"></path>
-                            </svg>Discounted rates for additional services</li>
-                        <li class="flex gap-3" data-tsd-source="/src/routes/index.tsx:255:63"><svg aria-hidden="true"
-                                class="lucide lucide-check h-5 w-5 shrink-0 text-primary"
-                                data-tsd-source="/src/routes/index.tsx:255:98" fill="none" height="24"
-                                stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M20 6 9 17l-5-5"></path>
-                            </svg>Flexible pause or cancel anytime</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-        <section class="px-6 py-28 md:px-24" data-tsd-source="/src/routes/index.tsx:262:7" id="blogs">
+   
+          <section class="px-6 py-28 md:px-24" data-tsd-source="/src/routes/index.tsx:262:7" id="blogs">
             <div class="flex flex-wrap items-end justify-between gap-6" data-tsd-source="/src/routes/index.tsx:263:9">
                 <div data-tsd-source="/src/routes/index.tsx:264:11">
                     <h2 class="font-display uppercase leading-[0.95] text-5xl md:text-7xl"
@@ -662,8 +515,7 @@
                     <p class="mt-4 max-w-lg text-muted-foreground" data-tsd-source="/src/routes/index.tsx:264:78">
                         Practical legal insights, expert advice, and resources to help you navigate life's legal
                         challenges.</p>
-                </div><a class="border-b border-primary pb-1 font-semibold text-primary"
-                    data-tsd-source="/src/routes/index.tsx:265:11" href="#blogs">Check out more</a>
+                </div>
             </div>
             <div class="mt-14 grid gap-8 md:grid-cols-3" data-tsd-source="/src/routes/index.tsx:267:9">
                 <article class="group" data-tsd-source="/src/routes/index.tsx:269:13"><img alt=""
@@ -720,81 +572,8 @@
                 </article>
             </div>
         </section>
-        <section class="grid gap-12 border-t border-border px-6 py-28 md:grid-cols-2 md:px-24"
-            data-tsd-source="/src/routes/index.tsx:280:7" id="contact">
-            <div data-tsd-source="/src/routes/index.tsx:281:9"><img alt="Wajahat Ali in his office"
-                    class="aspect-[4/3] w-full rounded-lg object-cover" data-tsd-source="/src/routes/index.tsx:282:11"
-                    loading="lazy" src="assets/Gemini_Generated_Image_q0xbypq0xbypq0xb.jpg" />
-                <div class="mt-6 grid gap-4 sm:grid-cols-2" data-tsd-source="/src/routes/index.tsx:283:11"><a
-                        class="flex items-center gap-3 rounded-lg border border-border p-4 hover:border-primary"
-                        data-tsd-source="/src/routes/index.tsx:284:13" href="tel:+12129405500"><svg aria-hidden="true"
-                            class="lucide lucide-phone text-primary" data-tsd-source="/src/routes/index.tsx:284:133"
-                            fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                            stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M13.832 16.568a1echo "# lawyer-website" >> README.md 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384">
-                            </path>
-                        </svg><span data-tsd-source="/src/routes/index.tsx:284:167"><span
-                                class="block text-xs text-muted-foreground"
-                                data-tsd-source="/src/routes/index.tsx:284:173">Call me</span>+1 (212)
-                            940-5500</span></a><a
-                        class="flex items-center gap-3 rounded-lg border border-border p-4 hover:border-primary"
-                        data-tsd-source="/src/routes/index.tsx:285:13" href="mailto:xyz@gmail.com"><svg
-                            aria-hidden="true" class="lucide lucide-mail text-primary"
-                            data-tsd-source="/src/routes/index.tsx:285:142" fill="none" height="24"
-                            stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"></path>
-                            <rect height="16" rx="2" width="20" x="2" y="4"></rect>
-                        </svg><span data-tsd-source="/src/routes/index.tsx:285:175"><span
-                                class="block text-xs text-muted-foreground"
-                                data-tsd-source="/src/routes/index.tsx:285:181">Email
-                                me</span>xyz@gmail.com</span></a></div>
-                <p class="mt-4 text-sm text-muted-foreground" data-tsd-source="/src/routes/index.tsx:287:11">Response
-                    guaranteed within 1 business day</p>
-            </div>
-            <form class="space-y-5" id="consultation-form" data-tsd-source="/src/routes/index.tsx:289:9">
-                <h2 class="font-display uppercase leading-[0.95] text-5xl md:text-7xl"
-                    data-tsd-source="/src/routes/index.tsx:56:10">Book a <span class="text-primary"
-                        data-tsd-source="/src/routes/index.tsx:290:22">Consultation</span></h2>
-                <p class="text-muted-foreground" data-tsd-source="/src/routes/index.tsx:291:11">Share your details and
-                    get expert legal guidance tailored to your situation.</p><label class="block"
-                    data-tsd-source="/src/routes/index.tsx:293:13"><span class="text-sm"
-                        data-tsd-source="/src/routes/index.tsx:293:56">Full name*</span><input
-                        class="mt-1 w-full rounded-md border border-input bg-transparent px-4 py-3 outline-none focus:border-primary"
-                        data-tsd-source="/src/routes/index.tsx:293:92" required="" type="text" /></label><label
-                    class="block" data-tsd-source="/src/routes/index.tsx:293:13"><span class="text-sm"
-                        data-tsd-source="/src/routes/index.tsx:293:56">Email address*</span><input
-                        class="mt-1 w-full rounded-md border border-input bg-transparent px-4 py-3 outline-none focus:border-primary"
-                        data-tsd-source="/src/routes/index.tsx:293:92" required="" type="email" /></label><label
-                    class="block" data-tsd-source="/src/routes/index.tsx:293:13"><span class="text-sm"
-                        data-tsd-source="/src/routes/index.tsx:293:56">Phone number</span><input
-                        class="mt-1 w-full rounded-md border border-input bg-transparent px-4 py-3 outline-none focus:border-primary"
-                        data-tsd-source="/src/routes/index.tsx:293:92" type="tel" /></label><label class="block"
-                    data-tsd-source="/src/routes/index.tsx:295:11"><span class="text-sm"
-                        data-tsd-source="/src/routes/index.tsx:295:36">Service needed*</span><select
-                        class="mt-1 w-full rounded-md border border-input bg-background px-4 py-3 outline-none focus:border-primary"
-                        data-tsd-source="/src/routes/index.tsx:296:13" required="">
-                        <option data-tsd-source="/src/routes/index.tsx:297:15" value="">Select a Service</option>
-                        <option data-tsd-source="/src/routes/index.tsx:297:78">Business Law</option>
-                        <option data-tsd-source="/src/routes/index.tsx:297:78">Family Law</option>
-                        <option data-tsd-source="/src/routes/index.tsx:297:78">Criminal Defense</option>
-                        <option data-tsd-source="/src/routes/index.tsx:297:78">Civil Litigation</option>
-                        <option data-tsd-source="/src/routes/index.tsx:297:78">Real Estate Law</option>
-                    </select></label><label class="block" data-tsd-source="/src/routes/index.tsx:300:11"><span
-                        class="text-sm" data-tsd-source="/src/routes/index.tsx:300:36">Message</span><textarea
-                        class="mt-1 w-full rounded-md border border-input bg-transparent px-4 py-3 outline-none focus:border-primary"
-                        data-tsd-source="/src/routes/index.tsx:300:76" rows="4"></textarea></label><button
-                    class="w-full rounded-full bg-primary py-4 font-semibold uppercase tracking-widest text-primary-foreground hover:opacity-90"
-                    data-tsd-source="/src/routes/index.tsx:301:11">Send message</button>
-            </form>
-        </section>
-        <footer class="border-t border-border px-6 py-10 md:px-24" data-tsd-source="/src/routes/index.tsx:305:7">
-            <p class="font-display text-[15vw] uppercase leading-none text-primary"
-                data-tsd-source="/src/routes/index.tsx:306:9">Adv.Wajahat Ali</p>
-            <p class="mt-6 text-sm text-muted-foreground" data-tsd-source="/src/routes/index.tsx:307:9">© 2026 Adv.Wajahat Ali, Attorney at Law. All rights reserved.</p>
-        </footer>
-    </main>
-</body>
 
-</html>
+
+
+        
+       <?php include "include/footer.php" ?>

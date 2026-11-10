@@ -29,7 +29,7 @@ const menu = document.createElement('div');
 menu.className = 'fixed inset-0 z-[60] flex flex-col bg-background px-6 py-5 md:px-24';
 menu.hidden = true;
 menu.style.display = 'none';
-menu.innerHTML = '<button type="button" class="ml-auto flex items-center gap-2 font-display text-2xl uppercase" aria-label="Close menu">Close ×</button><nav class="mt-12 flex flex-col gap-2">' + ['About','Services','Cases','Pricing','Blogs','Contact'].map(name => '<a class="font-display text-6xl uppercase transition-colors hover:text-primary md:text-8xl" href="#' + name.toLowerCase() + '">' + name + '</a>').join('') + '</nav>';
+menu.innerHTML = '<button type="button" class="ml-auto flex items-center gap-2 font-display text-2xl uppercase" aria-label="Close menu">Close ×</button><nav class="mt-12 flex flex-col gap-2">' +map(name => '<a class="font-display text-6xl uppercase transition-colors hover:text-primary md:text-8xl" href="#' + name.toLowerCase() + '">' + name + '</a>').join('') + '</nav>';
 document.body.append(menu);
 function closeMenu() {
   menu.hidden = true;
