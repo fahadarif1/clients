@@ -17,38 +17,10 @@ serviceButtons.forEach((button, index) => {
   });
 });
 const reviewSection = [...document.querySelectorAll('section')].find(section => section.textContent.includes('Client Stories'));
-const reviewContainer = reviewSection.querySelector(':scope > div');
-reviewContainer.addEventListener('click', event => {
+const reviewContainer = reviewSection?.querySelector(':scope > div');
+reviewContainer?.addEventListener('click', event => {
   const button = event.target.closest('button');
   if (!button) return;
   const index = [...reviewContainer.querySelectorAll('button')].indexOf(button);
   if (index >= 0) reviewContainer.innerHTML = reviewSlides[index];
-});
-const menuButton = document.querySelector('header button');
-const menu = document.createElement('div');
-menu.className = 'fixed inset-0 z-[60] flex flex-col bg-background px-6 py-5 md:px-24';
-menu.hidden = true;
-menu.style.display = 'none';
-menu.innerHTML = '<button type="button" class="ml-auto flex items-center gap-2 font-display text-2xl uppercase" aria-label="Close menu">Close ×</button><nav class="mt-12 flex flex-col gap-2">' +map(name => '<a class="font-display text-6xl uppercase transition-colors hover:text-primary md:text-8xl" href="#' + name.toLowerCase() + '">' + name + '</a>').join('') + '</nav>';
-document.body.append(menu);
-function closeMenu() {
-  menu.hidden = true;
-  menu.style.display = 'none';
-  document.body.style.overflow = '';
-  menuButton.setAttribute('aria-expanded', 'false');
-  menuButton.focus();
-}
-menuButton.setAttribute('aria-expanded', 'false');
-menuButton.addEventListener('click', () => {
-  menu.hidden = false;
-  menu.style.display = 'flex';
-  document.body.style.overflow = 'hidden';
-  menuButton.setAttribute('aria-expanded', 'true');
-  menu.querySelector('button').focus();
-});
-menu.addEventListener('click', event => { if (event.target.closest('button, a')) closeMenu(); });
-document.addEventListener('keydown', event => { if (event.key === 'Escape' && !menu.hidden) closeMenu(); });
-document.querySelector('#consultation-form').addEventListener('submit', event => {
-  event.preventDefault();
-  alert('Demo only: your message has not been sent. Connect a contact service to receive enquiries.');
 });

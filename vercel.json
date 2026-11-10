@@ -1,0 +1,43 @@
+{
+  "version": 2,
+  "cleanUrls": false,
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/index.php",
+      "destination": "/"
+    },
+    {
+      "source": "/Tax-Law.php",
+      "destination": "/Tax-Law.html"
+    },
+    {
+      "source": "/contant-us.php",
+      "destination": "/contant-us.html"
+    },
+    {
+      "source": "/Constitutional-Law.php",
+      "destination": "/Constitutional-Law.html"
+    },
+    {
+      "source": "/about-us.php",
+      "destination": "/about-us.html"
+    },
+    {
+      "source": "/Criminal-Law.php",
+      "destination": "/Criminal-Law.html"
+    },
+    {
+      "source": "/Corporate-Law.php",
+      "destination": "/Corporate-Law.html"
+    },
+    {
+      "source": "/Property-Law.php",
+      "destination": "/Property-Law.html"
+    },
+    {
+      "source": "/Family-Law.php",
+      "destination": "/Family-Law.html"
+    }
+  ]
+}
